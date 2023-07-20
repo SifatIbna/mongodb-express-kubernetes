@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongodb-express-deployment
-  namespace: mongodb-namespace
+  # namespace: mongodb-namespace
   labels:
     app: mongodb-express
 spec:
@@ -41,11 +41,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mongodb-express-service
-  namespace: mongodb-namespace
+  # namespace: mongodb-namespace
 spec:
   selector:
     app: mongodb-express
-  # type: LoadBalancer # Uncomment for external service
+  type: NodePort # Uncomment for external service
   ports:
     - protocol: TCP
       port: 8081
